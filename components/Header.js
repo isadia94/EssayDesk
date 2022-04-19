@@ -29,9 +29,9 @@ function Header({ isActive, setIsActive, handleClick }) {
           </Link>
         </div>
         {isActive ? (
-          <XIcon className="h-6 text-red-500" onClick={handleClick} />
+          <XIcon className="h-6 text-red-500 lg:hidden" onClick={handleClick} />
         ) : (
-          <MenuIcon className="h-6 " onClick={handleClick} />
+          <MenuIcon className="h-6 lg:hidden " onClick={handleClick} />
         )}
       </nav>
     </header>
