@@ -21,10 +21,10 @@ function Header({ isActive, setIsActive, handleClick }) {
           <Link href="/">
             <a className="hover:text-red-500">Join Our Tutors</a>
           </Link>
-          <Link href="/">
+          <Link href="/login">
             <a className=" hover:text-red-500">Login</a>
           </Link>
-          <Link href="/">
+          <Link href="/register">
             <a className="bg-blue-400 px-5 py-3 rounded-full">Register</a>
           </Link>
         </div>

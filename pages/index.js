@@ -66,7 +66,7 @@ export default function Home() {
                 Join Our Tutors
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/login">
               <a
                 className=" hover:text-red-500 border-b-2 border-red-300 pb-6"
                 onClick={handleClick}
@@ -74,7 +74,7 @@ export default function Home() {
                 Login
               </a>
             </Link>
-            <Link href="/">
+            <Link href="/register">
               <a className="hover:text-red-300 " onClick={handleClick}>
                 Register
               </a>
