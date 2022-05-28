@@ -18,11 +18,11 @@ function register() {
         ></link>
       </Head>
       <Header />
-      <div className="px-6">
+      <div className="px-6 lg:grid grid-cols-2 place-items-center h-screen lg:-mt-[50px]">
         <div>
-          <img src="/login.svg" alt="" />
+          <img src="/login.svg" alt="" className="lg:h-[300px] w-[600px]" />
         </div>
-        <div className="mt-2">
+        <div className="mt-2 w-[384px]">
           <h1 className="text-3xl font-extrabold">Login</h1>
           <form className="mt-6 flex flex-col space-y-7">
             <div className="flex space-x-2">

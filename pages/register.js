@@ -18,9 +18,9 @@ function register() {
         ></link>
       </Head>
       <Header />
-      <div className="px-6">
+      <div className="px-6 lg:grid grid-cols-2 place-items-center h-screen lg:-mt-[50px]">
         <div>
-          <img src="/register.svg" alt="" />
+          <img src="/register.svg" alt="" className="lg:h-[300px] w-[600px]" />
         </div>
         <div className="mt-2">
           <h1 className="text-3xl font-extrabold">Sign Up</h1>
