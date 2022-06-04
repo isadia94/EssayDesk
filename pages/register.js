@@ -9,7 +9,9 @@ function register() {
   const [isActive, setIsActive] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
+
+  console.log(email, password, userName);
 
   const handleClick = () => {
     setIsActive(!isActive);
@@ -25,7 +27,7 @@ function register() {
       body: JSON.stringify({
         email,
         password,
-        userName,
+        username,
       }),
     });
     const data = await response.json();
@@ -130,7 +132,7 @@ function register() {
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
                     placeholder="Username"
                     required
-                    value={userName}
+                    value={username}
                     onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
