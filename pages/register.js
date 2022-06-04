@@ -7,9 +7,29 @@ import Image from "next/image";
 
 function register() {
   const [isActive, setIsActive] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
 
   const handleClick = () => {
     setIsActive(!isActive);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3200/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        userName,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
   };
 
   return (
@@ -95,10 +115,12 @@ function register() {
                 <div className="flex space-x-2">
                   <AtSymbolIcon className="h-8 text-gray-400" />
                   <input
+                    value={email}
                     type="email"
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
                     placeholder="E-mail"
                     required
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="flex space-x-2">
@@ -106,8 +128,10 @@ function register() {
                   <input
                     type="text"
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
-                    placeholder="Full Name"
+                    placeholder="Username"
                     required
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
                 <div className="flex space-x-2">
@@ -117,6 +141,8 @@ function register() {
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
                     placeholder="Password"
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <p className="text-sm leading-5">
@@ -125,7 +151,10 @@ function register() {
                   <span className="text-blue-500">Privacy Policy</span>
                 </p>
 
-                <button className="bg-blue-500 text-white px-2 py-4 rounded-lg font-semibold">
+                <button
+                  className="bg-blue-500 text-white px-2 py-4 rounded-lg font-semibold"
+                  onClick={handleSubmit}
+                >
                   Continue
                 </button>
               </form>

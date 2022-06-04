@@ -4,12 +4,31 @@ import Header from "../components/Header";
 import { AtSymbolIcon, UserIcon, KeyIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import Image from "next/image";
+import { getSession, getProviders } from "next-auth/react";
 
-function register() {
+function login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
     setIsActive(!isActive);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3200/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
   };
   return (
     <div className="bg-gray-50 h-screen">
@@ -93,6 +112,8 @@ function register() {
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
                     placeholder="E-mail"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
 
@@ -103,6 +124,8 @@ function register() {
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
                     placeholder="Password"
                     required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <Link href="/forgot">
@@ -111,10 +134,15 @@ function register() {
                   </a>
                 </Link>
 
-                <button className="bg-blue-500 text-white px-2 py-4 rounded-lg font-semibold">
+                <button
+                  onClick={handleSubmit}
+                  className="bg-blue-500 text-white px-2 py-4 rounded-lg font-semibold"
+                >
                   Login
                 </button>
               </form>
+              <p className="text-center mt-2">or</p>
+
               <p className="text-center mt-4">
                 New to Essay Desk?{" "}
                 <span className="text-blue-500">
@@ -131,4 +159,4 @@ function register() {
   );
 }
 
-export default register;
+export default login;
