@@ -7,9 +7,9 @@ import Image from "next/image";
 
 function register() {
   const [isActive, setIsActive] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("brianlusigi179@gmail.com");
+  const [password, setPassword] = useState("1234567");
+  const [username, setUserName] = useState("isadia94");
 
   console.log(email, password, userName);
 
@@ -25,9 +25,9 @@ function register() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email,
-        password: password,
-        username: username,
+        email,
+        password,
+        username,
       }),
     });
     const data = await response.json();
@@ -122,7 +122,7 @@ function register() {
                     className="border-b-[0.6px] outline-none bg-transparent border-gray-400 w-full underline-none pl-3"
                     placeholder="E-mail"
                     required
-                    onChange={(e) => setEmail(e.target.value)}
+                    // onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="flex space-x-2">
@@ -133,7 +133,7 @@ function register() {
                     placeholder="Username"
                     required
                     value={username}
-                    onChange={(e) => setUserName(e.target.value)}
+                    // onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
                 <div className="flex space-x-2">
@@ -144,7 +144,7 @@ function register() {
                     placeholder="Password"
                     required
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    // onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <p className="text-sm leading-5">
