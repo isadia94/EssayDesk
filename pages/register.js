@@ -11,7 +11,7 @@ function register() {
   const [password, setPassword] = useState("1234567");
   const [username, setUserName] = useState("isadia94");
 
-  console.log(email, password, userName);
+  console.log(email, password, username);
 
   const handleClick = () => {
     setIsActive(!isActive);

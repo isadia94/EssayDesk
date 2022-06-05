@@ -9,6 +9,7 @@ import { getSession, getProviders } from "next-auth/react";
 function login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUserName] = useState("");
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
