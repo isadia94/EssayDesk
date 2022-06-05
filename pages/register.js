@@ -17,7 +17,7 @@ function register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3200/register", {
+    const response = await fetch("https://essay-desk.herokuapp.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
