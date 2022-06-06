@@ -29,7 +29,11 @@ function register() {
       }),
     });
     const data = await response.json();
-    console.log(data);
+    if (data.error) {
+      alert(data.error);
+    } else if (data.success) {
+      window.location.href = "/login";
+    }
   };
 
   return (
